@@ -63,7 +63,7 @@
                         </div>
                         <span class="me-2">:</span>
                         <span class="fw-bold text-primary">
-                            {% if is_enbaled('store', 'store') %}
+                            {% if is_module_enabled('store', 'store') %}
 							{% set storeDetail = entries('store','store').where('user_id', params.userId).first() %}
                             {% if storeDetail is not null %}
                                 <a href="{{ url_route('store::view', [storeDetail.slug]) }}" class="d-flex align-items-center">
