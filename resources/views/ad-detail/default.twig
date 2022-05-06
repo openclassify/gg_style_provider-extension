@@ -63,6 +63,7 @@
                         </div>
                         <span class="me-2">:</span>
                         <span class="fw-bold text-primary">
+                            {% if is_module_enabled('store', 'store') %}
 							{% set storeDetail = entries('store','store').where('user_id', params.userId).first() %}
                             {% if storeDetail is not null %}
                                 <a href="{{ url_route('store::view', [storeDetail.slug]) }}" class="d-flex align-items-center">
@@ -70,6 +71,7 @@
 								</a>
                             {% else %}
                                 {{ user.first_name }}
+                            {% endif %}
                             {% endif %}
 						</span> &nbsp;
                         {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/seller_area" %}
