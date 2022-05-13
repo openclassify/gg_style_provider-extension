@@ -2,7 +2,7 @@
 	{% if adv.is_get_adv == "1" and adv.stock != "0" and adv.stock is not empty %}
 		{% if not setting_value('visiosoft.module.advs::hide_zero_price') or adv.price != "0" %}
 			<div class="m-2 p-0 add-to-cart-button-wrapper border-0">
-				<div class="row bg-transparent">
+				<div class="row bg-transparent p-0">
 					{% set standardPrice = adv.standard_price.value %}
 
 					{% if options is not empty and count(options) %}
@@ -95,10 +95,12 @@
 							<div class="container px-3 mt-3 p-0 m-0">
 								<div class="row p-0 d-flex">
 									{% if price_members_only %}
-										<a href="javascript:void(0)" data-type="checkout"
-										   class="col-6 gg-product-buy-btn text-white bg-primary add-cart-button">
-											{{ trans('visiosoft.extension.gg_style_provider::field.buy_now') }}
-										</a>
+										<div class="col-6">
+											<a href="javascript:void(0)" data-type="checkout"
+											   class="gg-product-buy-btn text-white bg-primary add-cart-button">
+												{{ trans('visiosoft.extension.gg_style_provider::field.buy_now') }}
+											</a>
+										</div>
 									{% else %}
 										<a href="{{ url('/login') }}"
 										   class="col-6 gg-product-buy-btn text-white bg-primary">
@@ -106,9 +108,11 @@
 										</a>
 									{% endif %}
 									{% if price_members_only %}
-										<a href="javascript:void(0)" class="col-6 gg-product-buy-btn add-cart-button">
-											{{ trans('visiosoft.module.orders::field.addcart') }}
-										</a>
+										<div class="col-6">
+											<a href="javascript:void(0)" class="gg-product-buy-btn add-cart-button">
+												{{ trans('visiosoft.module.orders::field.addcart') }}
+											</a>
+										</div>
 									{% else %}
 										<a href="{{ url('/login') }}" class="col-6 gg-product-buy-btn">
 											{{ trans('visiosoft.module.orders::field.addcart') }}
