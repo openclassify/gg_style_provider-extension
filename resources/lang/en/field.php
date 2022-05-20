@@ -53,5 +53,7 @@ return [
 	'popular_categories' => 'Popular Categories',
 	'bestsellers_of_the_week' => 'Bestsellers Of The Week',
 	'super_price' => 'Super Price',
-    'my_favs' => 'My Favorites'
+    'my_favs' => 'My Favorites',
+    'delivery' => 'Delivery',
+    'delivery_time' => 'This product can be delivered in :day day/days',
 ];

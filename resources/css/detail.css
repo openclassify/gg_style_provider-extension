@@ -223,7 +223,7 @@
 	align-items: center;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
-	justify-content: space-between;
+	justify-content: start;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
 	-ms-flex-direction: row;
