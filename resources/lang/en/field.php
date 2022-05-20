@@ -55,5 +55,5 @@ return [
 	'super_price' => 'Super Price',
     'my_favs' => 'My Favorites',
     'delivery' => 'Delivery',
-    'delivery_time' => 'This product can be delivered in :day day/days',
+    'delivery_time' => 'This product can be delivered in :day days',
 ];

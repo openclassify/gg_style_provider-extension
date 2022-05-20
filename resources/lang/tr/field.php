@@ -55,5 +55,5 @@ return [
 	'super_price' => 'Süper Fiyat',
     'my_favs' => 'Favorilerim',
     'delivery' => 'Teslimat',
-    'delivery_time' => 'Bu ürün :day gün teslim edilir',
+    'delivery_time' => 'Bu ürün :day gün içinde teslim edilir',
 ];
