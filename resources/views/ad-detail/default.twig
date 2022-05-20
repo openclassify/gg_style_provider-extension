@@ -87,6 +87,20 @@
                 </div>
                 <div class="specific-feature p-3 rounded">
                     {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/actions" %}
+
+                    {% if (getValueWithSlugAndAd('delivery_time', adv.id)|raw) %}
+                        <div class="h-100 d-flex flex-column align-items-center tooltips">
+                            <div class="feature-img p-1">
+                                {{ img("visiosoft.extension.gg_style_provider::images/delivery.svg").data|raw }}
+                            </div>
+                            <span class="small mt-auto">
+                                Delivery
+                            </span>
+                            <div class="tooltiptext">
+                                {{ trans('visiosoft.extension.gg_style_provider::field.delivery_time', {day: getValueWithSlugAndAd('delivery_time', adv.id)})|raw }}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -100,6 +114,7 @@
 					</span>
                 </a>
                 {% if is_module_enabled('customfields') and features %}
+
                     <a href="#features" class="title-special primary-border">
                         <span>{{ trans('visiosoft.extension.gg_style_provider::field.ads_custom_fields') }}</span>
                     </a>
