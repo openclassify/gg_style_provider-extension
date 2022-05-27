@@ -15,10 +15,12 @@
 					{% if feature.custom_field_value is iterable %}
 					{% else %}
 						<div class="gg-product-feature">
+						{%  if not feature.slug == "delivery_time" %}
 							<div>
 								<p class="d-inline-block me-1 m-0">●</p>
 								{{ feature.custom_field_value }} {{ feature.name ? feature.name : '' }}
 							</div>
+						{% endif %}
 						</div>
 					{% endif %}
 				{% endfor %}
