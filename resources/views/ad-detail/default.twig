@@ -87,19 +87,21 @@
                 </div>
                 <div class="specific-feature p-3 rounded">
                     {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/actions" %}
-
-                    {% if (getValueWithSlugAndAd('delivery_time', adv.id)|raw) %}
-                        <div class="h-100 d-flex flex-column align-items-center tooltips">
-                            <div class="feature-img p-1">
-                                {{ img("visiosoft.extension.gg_style_provider::images/delivery.svg").data|raw }}
+                    {% if is_module_enabled('customfields') %}
+                        {% set delivery_time = fn('getValueWithSlugAndAd','delivery_time', adv.id)  %}
+                        {% if delivery_time %}
+                            <div class="h-100 d-flex flex-column align-items-center tooltips">
+                                <div class="feature-img p-1">
+                                    {{ img("visiosoft.extension.gg_style_provider::images/delivery.svg").data|raw }}
+                                </div>
+                                <span class="small mt-auto">
+                                    {{ trans('visiosoft.extension.gg_style_provider::field.delivery') }}
+                                </span>
+                                <div class="tooltiptext">
+                                    {{ trans('visiosoft.extension.gg_style_provider::field.delivery_time', {day: delivery_time})|raw }}
+                                </div>
                             </div>
-                            <span class="small mt-auto">
-                                Delivery
-                            </span>
-                            <div class="tooltiptext">
-                                {{ trans('visiosoft.extension.gg_style_provider::field.delivery_time', {day: getValueWithSlugAndAd('delivery_time', adv.id)})|raw }}
-                            </div>
-                        </div>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
