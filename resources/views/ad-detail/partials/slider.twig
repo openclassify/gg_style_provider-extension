@@ -1,38 +1,55 @@
 <div class="gg-product-img-area col-lg-5">
-	<div class="product__carousel mt-0">
-		<div class="swiper-container gallery-top">
-			<div class="swiper-wrapper">
-				{% if count(adv.files) == 0 %}
-					<div class="swiper-slide easyzoom easyzoom--overlay">
-						<a>
-							<img src="{{ img('visiosoft.module.advs::images/no-image.png').url }}" alt=""/>
-						</a>
-					</div>
-				{% else %}
-					{% for image in adv.getViewPhotoUrl %}
-						<div class="swiper-slide easyzoom easyzoom--overlay">
-							<a href="{{ image }}" data-lightbox="ads-image">
-								<img src="{{ adv.getMediumPhotoUrl(image) }}" class="swiper-lazy" alt=""/>
-								<div class="swiper-lazy-preloader"></div>
-							</a>
-						</div>
-					{% endfor %}
-				{% endif %}
-			</div>
-		</div>
-		<div class="swiper-container d-none d-md-block gallery-thumbs">
-			<div class="swiper-wrapper">
-				{% if count(adv.files) != 0 %}
-					{% for image in adv.getViewPhotoUrl %}
-						<div class="swiper-slide">
-							<img src="{{ adv.getMediumPhotoUrl(image) }}" alt="">
-						</div>
-					{% endfor %}
-				{% endif %}
-			</div>
-		</div>
-	</div>
+    <div class="product__carousel mt-0">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% if count(adv.files) == 0 %}
+                    <div class="swiper-slide">
+                        <a>
+                            <img class="w-100" src="{{ img('visiosoft.module.advs::images/no-image.png').url }}" alt=""/>
+                        </a>
+                    </div>
+                {% else %}
+                    {% for image in adv.getViewPhotoUrl %}
+                        <div class="swiper-slide">
+                            <a href="{{ image }}" data-lightbox="ads-image">
+                                <img class="swiper-border w-100" src="{{ adv.getMediumPhotoUrl(image) }}" alt=""/>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="swiper-pagination d-flex justify-content-start align-items-baseline"></div>
+        </div>
+    </div>
 </div>
 {{ asset_add("styles.css", "visiosoft.extension.gg_style_provider::css/lightbox.min.css") }}
 {{ asset_add("scripts.js", "visiosoft.extension.gg_style_provider::js/lightbox.min.js") }}
-{{ asset_add("scripts.js", "visiosoft.extension.gg_style_provider::js/swiper.js") }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.css"
+      integrity="sha512-T3xwtELy3dqQUajk2sl4V6x/VnT+WbXgAKIu/Go7L6oDDWf4A5dJbG49vKn0am3dTNh/KHAbU2+4Ih2vVioxSg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"
+        integrity="sha512-V1mUBtsuFY9SNr+ptlCQAlPkhsH0RGLcazvOCFt415od2Bf9/YkdjXxZCdhrP/TVYsPeAWuHa+KYLbjNbeEnWg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Initialize Swiper -->
+{% if count(adv.files) != 0 %}
+    <script>
+        let paginationImages = [];
+        {% for image in adv.getViewPhotoUrl %}
+        paginationImages.push('{{adv.getMediumPhotoUrl(image)}}');
+        {% endfor %}
+    </script>
+{% endif %}
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<div class="' + className + '">' + '<img class="swiper-border" src=' + paginationImages[index] + ' >' + "</div>";
+            },
+        },
+    });
+</script>
