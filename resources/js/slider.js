@@ -6,7 +6,7 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
         clickable: true,
         renderBullet: function (index, className) {
-            return `<div class="' + className + '"><img class="swiper-border" src="${paginationImages[index]}" ></div>`;
+            return `<div class="${className}"><img class="swiper-border" src="${paginationImages[index]}" ></div>`;
         },
     },
 });
