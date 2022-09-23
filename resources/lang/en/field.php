@@ -9,7 +9,7 @@ return [
     'sell' => 'Sell',
     'see_all' => 'See All',
     'categories' => 'Categories',
-    'header_search_input_placeholder' => 'Let what comes to your mind come to your door',
+    'header_search_input_placeholder' => 'Order & Get Now',
     'find' => 'Find',
     'my_account' => 'My Account',
     'profile' => 'Profile',

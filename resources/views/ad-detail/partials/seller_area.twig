@@ -1,5 +1,5 @@
 {% if is_module_enabled('messages') %}
-	<a href="#" class="text-decoration-none text-primary fw-bold" data-toggle="modal" data-content="{{ app.auth.id }}"
+	<a href="#" class="text-decoration-none btn-primary btn-sm fw-bold" data-toggle="modal" data-content="{{ app.auth.id }}"
 	   id="message"
 		{% if not auth_check() %}
 			onclick="window.location.href = '{{ url_route('anomaly.module.users::login') }}'"
