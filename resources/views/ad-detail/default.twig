@@ -11,7 +11,32 @@
     {% set userId = setting_value('visiosoft.theme.sahibinden::default_owner') ?: adv.created_by_id %}
     {% set user = setting_value('visiosoft.theme.sahibinden::default_owner') ? entries('users', 'users').find(setting_value('visiosoft.theme.sahibinden::default_owner')) : adv.created_by %}
     {% set price_members_only = setting_value('visiosoft.module.advs::show_price_to_members_only') ? auth_check() : true %}
+    {% block dataBreadcrumb %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "{{ adv.title }}",
+            "image": [
+                {% if count(adv.files) == 0 %}
+                    "{{ img('visiosoft.module.advs::images/no-image.png').url }}"
+                {% else %}
+                    "{{ adv.getMediumPhotoUrl(adv.getViewPhotoUrl[0]) }}"
+                {% endif %}
+            ],
+            "description": "{{ adv.advs_desc|raw }}",
+            "offers": {
+              "@type": "Offer",
+              "url": "{{ app.request.uri }}",
+              "priceCurrency": "{{ adv.currency }}",
+              "price": "{{ adv.price }}",
+              "priceValidUntil": "{{ adv.finish_at }}",
+              "availability": "https://schema.org/InStock"
+            }
+        }
 
+    </script>
+    {% endblock %}
     <div class="gg-product-out container mx-auto mt-5 border p-0 rounded">
         <div class="row p-4 px-5">
             {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/slider" %}
