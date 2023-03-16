@@ -4,7 +4,7 @@
 		{% if is_module_enabled('shipping') %}
 			{{ fn('getShippingAmount', adv.id) }}
 		{% else %}
-			{{ currency_format(setting_value('visiosoft.module.orders::shipping'), setting_value('streams::currency')) }}
+			{{ currency_format(setting_value('visiosoft.module.orders::shipping'), setting_value('streams::currency'), {'decimals' : setting_value('visiosoft.field_type.decimal::decimal_length')}) }}
 		{% endif %}
 
 		{% if is_module_enabled('customfields') %}

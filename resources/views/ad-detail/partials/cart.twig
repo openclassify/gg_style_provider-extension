@@ -26,7 +26,7 @@
 								<select name="configuration" id="" class="form-control w-100">
 									{% for key, configuration in configurations %}
 										<option value="{{ key }}" {{ (loop.index == 1) ? 'selected':'' }} data-stock="{{ configuration.stock }}"
-										        data-price="{{ currency_format(configuration.price,configuration.currency) }}">
+										        data-price="{{ currency_format(configuration.price,configuration.currency, {'decimals' : setting_value('visiosoft.field_type.decimal::decimal_length')}) }}">
 											{{ configuration.name }}
 										</option>
 									{% endfor %}

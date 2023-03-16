@@ -61,7 +61,7 @@
                             {% if (adv.standard_price != '0' and adv.standard_price > adv.price) %}
                                 <div class="price-1 small">
 		                            <span class="text-decoration-line-through price-1-text-1">
-			                            {{ currency_format(adv.standard_price,adv.currency) }}
+			                            {{ currency_format(adv.standard_price,adv.currency, {'decimals' : setting_value('visiosoft.field_type.decimal::decimal_length')}) }}
 		                            </span>
                                     <span class="mx-1">|</span>
                                     <span class="price-1-text text-uppercase">
@@ -70,7 +70,7 @@
 								</span>
                                 </div>
                             {% endif %}
-                            <div class="price-2 fw-bold ad-price total-price">{{ currency_format(adv.price,adv.currency) }}</div>
+                            <div class="price-2 fw-bold ad-price total-price">{{ currency_format(adv.price,adv.currency, {'decimals' : setting_value('visiosoft.field_type.decimal::decimal_length')}) }}</div>
 
                             {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/price_area" %}
                         </div>
