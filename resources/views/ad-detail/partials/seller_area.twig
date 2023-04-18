@@ -24,8 +24,11 @@
 				<form action="{{ url_route('chat_message_save', [adv.id]) }}" method="post">
 					<div class="modal-body">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<input type="hidden" name="adv_url"
+							   value="<strong> {{trans('visiosoft.module.messages::field.ads_url') }}: </strong>
+							   <span data-link='{{ app.request.uri }}'>{{ app.request.uri }} </span> [-]">
 						<textarea required placeholder="{{ trans("visiosoft.module.messages::field.your_message") }}"
-						          rows="5" class="form-control" name="detail">{{ app.request.uri }} {{ trans("visiosoft.module.messages::message.seller_area_message") }}</textarea>
+								  rows="5" class="form-control" name="detail"> {{ trans("visiosoft.module.messages::message.seller_area_message") }}</textarea>
 						<button type="submit" class="btn btn-primary mt-3 w-100">
 							{{ trans("visiosoft.module.messages::field.send") }}
 						</button>
