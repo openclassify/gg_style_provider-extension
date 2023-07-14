@@ -1,5 +1,5 @@
 {% if is_module_enabled('messages') %}
-	<a href="#" class="text-decoration-none btn-primary btn-sm fw-bold" data-toggle="modal" data-content="{{ app.auth.id }}"
+	<a href="#" class="text-decoration-none bg-purple-light btn-sm fw-bold" data-toggle="modal" data-content="{{ app.auth.id }}"
 	   id="message"
 		{% if not auth_check() %}
 			onclick="window.location.href = '{{ url_route('anomaly.module.users::login') }}'"
@@ -28,7 +28,7 @@
 							   value="/*{{ adv.id }}*/">
 						<textarea required placeholder="{{ trans("visiosoft.module.messages::field.your_message") }}"
 								  rows="5" class="form-control" name="detail"> {{ trans("visiosoft.module.messages::message.seller_area_message") }}</textarea>
-						<button type="submit" class="btn btn-primary mt-3 w-100">
+						<button type="submit" class="btn bg-purple-light mt-3 w-100">
 							{{ trans("visiosoft.module.messages::field.send") }}
 						</button>
 					</div>
