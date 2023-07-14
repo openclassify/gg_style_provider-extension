@@ -753,7 +753,7 @@
 	background-color: #483285;
 }
 
-.text-purple{
+.text-purple, .text-purple-light:hover{
 	color: #483285;
 }
 
@@ -766,10 +766,6 @@
 .bg-purple-light:hover{
 	background-color: #483285;
 	color: white;
-}
-
-.text-purple-light:hover{
-	color: #483285;
 }
 
 .purple-border{
