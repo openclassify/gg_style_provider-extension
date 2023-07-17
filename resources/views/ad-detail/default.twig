@@ -41,8 +41,8 @@
         </script>
     {% endblock %}
     <div class="container mx-auto mt-2 border rounded">
-        <div class="">
-            {% include "visiosoft.theme.gg::/partials/breadcrumb" %}
+        <div>
+            {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/breadcrumb" %}
         </div>
     </div>
 
@@ -85,8 +85,8 @@
                             {% include "visiosoft.extension.gg_style_provider::ad-detail/partials/price_area" %}
                         </div>
                     {% else %}
-                        <h6 class="">
-                            {{ trans('visiosoft.theme.sahibinden::field.ask_for_price') }}
+                        <h6>
+                            {{ trans('visiosoft.extension.gg_style_provider::field.ask_for_price') }}
                         </h6>
                     {% endif %}
                 {% endif %}
