@@ -1,0 +1,26 @@
+<div id="breadcrumb" class=" d-flex justify-content-between">
+    <div class="overflow-hidden d-none d-sm-flex align-items-center py-1">
+        <span class="text-truncate breadcrumb-detail d-flex">
+            <a href="{{ url('/') }}" data-toggle="tooltip" data-placement="bottom"
+               title="{{ trans("visiosoft.module.advs::field.home") }}">
+                {{ trans("visiosoft.module.advs::field.home") }}
+            </a>
+             {% for cat in categories %}
+                 <a class="d-flex align-items-center gap-5" href="{{ url_route('adv_list_seo', [cat.slug]) }}">
+                    <img src="{{ img('visiosoft.extension.gg_style_provider::images/rightArrowDetail.svg').url }}">
+                    {{ cat['name'] }}
+                </a>
+             {% endfor %}
+
+        </span>
+
+        {{ addBlock('ads-list/partials/breadcrumb', {'mainCats': mainCats, 'category': category})|raw }}
+
+    </div>
+    <ul class="overflow-auto text-nowrap d-sm-none mobile-breadcrmub py-2">
+        <li>
+            <a href="{{ url('/') }}">{{ trans("visiosoft.module.advs::field.home") }}</a>
+        </li>
+        {{ addBlock('ads-list/partials/breadcrumb-mobile', {'mainCats': mainCats, 'category': category})|raw }}
+    </ul>
+</div>

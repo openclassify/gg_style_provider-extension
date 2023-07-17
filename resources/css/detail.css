@@ -748,3 +748,26 @@
 	border: 1px solid #e3e3e3;
 	border-radius: 5px;
 }
+
+.bg-purple{
+	background-color: #483285;
+}
+
+.text-purple, .text-purple-light:hover{
+	color: #483285;
+}
+
+.text-purple-light{
+	color: #8B61FF;
+}
+.bg-purple-light{
+	background-color: #e2dbf6;
+}
+.bg-purple-light:hover{
+	background-color: #483285;
+	color: white;
+}
+
+.purple-border{
+	border: 1px solid #483285;
+}

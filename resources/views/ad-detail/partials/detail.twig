@@ -1,11 +1,11 @@
 {% if is_module_enabled('customfields') and features %}
-	<div class="container p-0 mt-4 border gg-product-out pb-5 rounded">
+	<div class="container p-0 mt-4 mb-4 border gg-product-out pb-5 rounded">
 		<div class="col-12 m-0 my-3 px-3" id="features">
 			<div class="fw-600 fs-20">
 				{{ trans('visiosoft.extension.gg_style_provider::field.features_for_ads.title', { ads_name: adv.name }) }}
 			</div>
 			<div class="my-2">
-				<i class="fas fa-exclamation-circle text-primary"></i>
+				<i class="fas fa-exclamation-circle text-purple"></i>
 				<span class="small">{{ trans('visiosoft.extension.gg_style_provider::field.features_for_ads.description') }}</span>
 			</div>
 		</div>
@@ -13,7 +13,7 @@
 			<div class="container m-0 p-0">
 				<div class="row m-0 p-0">
 					<div class="col-12 m-0 p-0">
-						<div class="bg-special text-white px-3 padding-text">
+						<div class="bg-purple text-white px-3 padding-text">
 							{{ adv.name }}
 						</div>
 						<div class="row mx-auto">
@@ -25,7 +25,7 @@
 											<div class="w-50 px-3 marka-text border padding-text">
 												{{ feature.name ? feature.name : '' }}
 											</div>
-											<div class="w-50 px-3 text-primary border padding-text">
+											<div class="w-50 px-3 text-purple border padding-text">
 												{{ feature.custom_field_value }}
 											</div>
 										</div>

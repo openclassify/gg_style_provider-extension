@@ -56,4 +56,6 @@ return [
     'my_favs' => 'My Favorites',
     'delivery' => 'Delivery',
     'delivery_time' => 'This product can be delivered in :day days',
+
+    'ask_for_price' => 'Ask for Price',
 ];
