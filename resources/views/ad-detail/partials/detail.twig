@@ -44,7 +44,7 @@
 	{% set entry_type = get_class(adv.getObject()) %}
 	{% set rating = fn('getRating', entry_type, adv.id) %}
 
-	<div class="container px-3 pt-3 mt-4 border gg-product-out pb-5" id="comments">
+	<div class="container px-3 pt-3 mt-4 mb-4 border gg-product-out pb-5" id="comments">
 		<div class="row p-0 m-0">
 			<div class="fw-500 fs-20">
 				{{ trans('visiosoft.module.comments::field.reviewing_comments') }}
@@ -70,7 +70,7 @@
 								</div>
 
 								<div class="fw-500 mt-2 w-fit-content">
-									<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#commentModal">
+									<button type="button" class="btn bg-purple btn-sm text-white" data-toggle="modal" data-target="#commentModal">
 										{{ trans('visiosoft.module.comments::field.write_comment') }}
 									</button>
 								</div>
